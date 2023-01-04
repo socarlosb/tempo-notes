@@ -4,7 +4,9 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Temporary notes">
-  <section class="bg-slate-700 max-w-md w-full rounded-md p-10 shadow-md mt-10">
+  <section
+    class="bg-slate-700 lg:max-w-md w-full rounded-md p-10 shadow-md lg:mt-10 m-2"
+  >
     <Note client:load />
   </section>
 </Layout>

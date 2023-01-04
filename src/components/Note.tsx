@@ -67,14 +67,13 @@ const Note: React.FC = (props) => {
   return (
     <form className="flex flex-col gap-2" onSubmit={(e) => addNote(e)}>
       {loading && <p className="text-slate-500 text-center">Loading...</p>}
-      <main>
+      <main className="h-80  overflow-y-scroll scroll-smooth scrollbar">
         {!loading && (
           <ul className="flex flex-col">
             {notes.map((note) => (
               <li
                 className="px-2 py-1 rounded-md hover:bg-slate-400/20 w-full cursor-pointer flex items-center justify-between"
                 key={note.id}
-                onClick={() => isDone(note.id)}
               >
                 <div className="flex items-baseline gap-1">
                   <span className="text-sm text-slate-400">#{note.id}</span>
@@ -82,11 +81,15 @@ const Note: React.FC = (props) => {
                     className={`text-slate-200 ${
                       note.done ? "line-through text-slate-500" : ""
                     }`}
+                    onClick={() => isDone(note.id)}
                   >
                     {note.title}
                   </span>
                 </div>
-                <span className="text-slate-200 w-4 h-4">
+                <span
+                  className="text-slate-200 w-4 h-4"
+                  onClick={() => removeNote(note.id)}
+                >
                   <RemoveIcon />
                 </span>
               </li>
