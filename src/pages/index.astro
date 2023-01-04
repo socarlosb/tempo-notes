@@ -1,0 +1,10 @@
+---
+import Note from "../components/Note";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Temporary notes">
+  <section class="bg-slate-700 max-w-md w-full rounded-md p-10 shadow-md mt-10">
+    <Note client:load />
+  </section>
+</Layout>
