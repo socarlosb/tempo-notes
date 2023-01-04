@@ -67,7 +67,7 @@ const Note: React.FC = (props) => {
   return (
     <form className="flex flex-col gap-2" onSubmit={(e) => addNote(e)}>
       {loading && <p className="text-slate-500 text-center">Loading...</p>}
-      <main className="h-80  overflow-y-scroll scroll-smooth scrollbar">
+      <main className="h-80 overflow-y-auto scroll-smooth scrollbar">
         {!loading && (
           <ul className="flex flex-col">
             {notes.map((note) => (
