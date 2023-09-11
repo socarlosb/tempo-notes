@@ -1,17 +1,23 @@
 import { IconDone, IconInProgress, IconIsPending, IconRemove } from "../icons";
 import { noteStates } from "../options";
 import { NoteStateValues, type Note } from "../types";
-import { removeNote, updateDescriptionNote, updateNoteState } from "../utils";
+import {
+  cn,
+  removeNote,
+  updateDescriptionNote,
+  updateNoteState,
+} from "../utils";
 import { Input } from "./UI/Input";
 
 type NotesListProps = {
   notes: Note[];
   setNotes: (notes: Note[]) => void;
+  className?: string;
 };
 
-export function NotesList({ notes, setNotes }: NotesListProps) {
+export function NotesList({ notes, setNotes, className }: NotesListProps) {
   return (
-    <ul className="flex flex-col gap-1">
+    <ul className={cn("flex flex-col gap-1", className)}>
       {notes.map((note, index) => {
         return (
           <li key={note.id}>

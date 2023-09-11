@@ -1,4 +1,5 @@
 import type React from "react";
+import { cn } from "./utils";
 
 export function IconInProgress({
   className,
@@ -9,7 +10,7 @@ export function IconInProgress({
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={`w-6 h-6 ${className || ""}`}
+      className={cn("w-6 h-6", className)}
       {...props}
     >
       <path
@@ -29,7 +30,7 @@ export function IconDone({ className, ...props }: React.ComponentProps<"svg">) {
       viewBox="0 0 24 24"
       strokeWidth="4"
       stroke="currentColor"
-      className={`w-6 h-6 ${className || ""}`}
+      className={cn("w-6 h-6", className)}
       {...props}
     >
       <path
@@ -50,12 +51,12 @@ export function IconIsPending({
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={`w-6 h-6 ${className || ""}`}
+      className={cn("w-6 h-6", className)}
       {...props}
     >
       <path
         fillRule="evenodd"
-        d="M6.75 5.25a.75.75 0 01.75-.75H9a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H7.5a.75.75 0 01-.75-.75V5.25zm7.5 0A.75.75 0 0115 4.5h1.5a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H15a.75.75 0 01-.75-.75V5.25z"
+        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z"
         clipRule="evenodd"
       />
     </svg>
@@ -71,7 +72,7 @@ export function IconLoading({
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={`w-6 h-6 ${className || ""}`}
+      className={cn("w-6 h-6", className)}
       {...props}
     >
       <path
@@ -92,7 +93,7 @@ export function IconRemove({
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={`w-6 h-6 ${className || ""}`}
+      className={cn("w-6 h-6", className)}
       {...props}
     >
       <path

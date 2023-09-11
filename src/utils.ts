@@ -1,3 +1,5 @@
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 import type { Note } from "./types";
 
 export function filterNotesLength({
@@ -62,4 +64,8 @@ export function removeNote({ notes, note }: { notes: Note[]; note: Note }) {
   });
 
   return updateNotes;
+}
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }
