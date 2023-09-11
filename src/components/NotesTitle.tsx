@@ -1,15 +1,19 @@
-import React from "react";
 import { noteStates } from "../options";
 import { Input } from "./UI/Input";
 
 type NotesTitleProps = {
   done: number;
   total: number;
+  title: string;
+  setTitle: (text: string) => void;
 };
 
-export function NotesTitle({ done = 0, total = 0 }: NotesTitleProps) {
-  const [title, setTitle] = React.useState<string>("My board");
-
+export function NotesTitle({
+  done = 0,
+  total = 0,
+  title,
+  setTitle,
+}: NotesTitleProps) {
   return (
     <header className="w-full flex gap-2 font-semibold items-center justify-between">
       <Input

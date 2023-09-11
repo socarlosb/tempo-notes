@@ -32,6 +32,7 @@ function Progress({ current, total }: { current: number; total: number }) {
 export function Note() {
   const [notes, setNotes] = React.useState<Note[]>([]);
   const [loading, setLoading] = React.useState(true);
+  const [title, setTitle] = React.useState<string>("");
 
   React.useEffect(() => {
     setLoading(true);
@@ -40,9 +41,21 @@ export function Note() {
     if (!json) parsedNotes = [];
     else parsedNotes = JSON.parse(json);
 
+    let jsonTitle = localStorage.getItem("title");
+    let parsedTitle: string = "";
+    if (!jsonTitle) parsedTitle = "My board";
+    else parsedTitle = JSON.parse(jsonTitle);
+
     setNotes(parsedNotes);
+    setTitle(parsedTitle);
     setLoading(false);
   }, []);
+
+  function updateTitle(text: string) {
+    setTitle(text);
+    const json = JSON.stringify(text);
+    localStorage.setItem("title", json);
+  }
 
   function updateNotes(notes: Note[]) {
     setLoading(true);
@@ -92,6 +105,8 @@ export function Note() {
   return (
     <div className="text-slate-400 text-lg flex flex-col gap-2 h-full">
       <NotesTitle
+        title={title}
+        setTitle={updateTitle}
         done={filterNotesLength({ notes, state: "isDone" })}
         total={notes.length}
       />
