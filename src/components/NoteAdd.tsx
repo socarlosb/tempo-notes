@@ -1,5 +1,6 @@
 import React from "react";
-import type { Note } from "../types";
+import { IconAdd } from "../icons";
+import { type Note } from "../types";
 import { randomNum } from "../utils";
 import { Input } from "./UI/Input";
 
@@ -24,13 +25,26 @@ export function NoteAdd({ notes, setNotes }: NoteAddProps) {
   };
 
   return (
-    <form onSubmit={(e) => addNote(e)} className="flex w-full">
+    <form
+      onSubmit={(e) => addNote(e)}
+      className="flex w-full items-center relative group"
+    >
+      <span className="absolute inset-y-0 left-0 flex group-focus-within:text-lime-400">
+        <button
+          tabIndex={-1}
+          type="submit"
+          className="focus:outline-none focus:shadow-outline ps-2"
+        >
+          <IconAdd className="w-4 h-4" />
+        </button>
+      </span>
       <Input
         type="text"
-        name="note"
-        placeholder="...new note"
+        name="task"
+        placeholder="add a new task..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        className="ps-8"
       />
     </form>
   );

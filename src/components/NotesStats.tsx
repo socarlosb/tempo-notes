@@ -21,6 +21,12 @@ export function NotesStatistics({
         </span>{" "}
         of all tasks complete.
       </div>
+      <div className="h-0.5 w-full bg-slate-500">
+        <div
+          className="h-0.5 bg-lime-400"
+          style={{ width: `${donePercentage}%` }}
+        ></div>
+      </div>
       <div className="flex gap-4 w-full items-center justify-between">
         <p>
           <span className="text-lime-400 pe-1">{isDone}</span>done
