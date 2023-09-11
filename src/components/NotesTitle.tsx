@@ -21,7 +21,7 @@ export function NotesTitle({
         name="title"
         onChange={(e) => setTitle(e.target.value)}
         value={title}
-        className="text-lg font-extrabold"
+        className="text-lg font-extrabold w-full"
       />
       <span
         className={`${
