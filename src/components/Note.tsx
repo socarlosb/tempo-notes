@@ -1,14 +1,32 @@
 import React from "react";
 import { IconLoading } from "../icons";
 import { NoteStateValues, type Note } from "../types";
-import { filterNotesLength } from "../utils";
+import { cn, filterNotesLength } from "../utils";
 import { NoteAdd } from "./NoteAdd";
 import { NotesList } from "./NotesList";
 import { NotesStatistics } from "./NotesStats";
 import { NotesTitle } from "./NotesTitle";
 
 function Divider() {
-  return <div className="border-b-2 border-slate-500 mx-4 my-2"></div>;
+  return <div className="h-[1px] bg-slate-600"></div>;
+}
+function Progress({ current, total }: { current: number; total: number }) {
+  const percentage = (current / total) * 100 || 0;
+  const isHalf = percentage > 50;
+  const isAlmost = percentage > 80;
+
+  return (
+    <div className="h-[1px] w-full bg-lime-800 mb-1">
+      <div
+        className={cn(
+          "h-[1px] bg-lime-700",
+          isHalf && "bg-lime-500",
+          isAlmost && "bg-lime-400"
+        )}
+        style={{ width: `${percentage}%` }}
+      ></div>
+    </div>
+  );
 }
 
 export function Note() {
@@ -94,7 +112,10 @@ export function Note() {
         </>
       )}
 
-      <Divider />
+      <Progress
+        current={filterNotesLength({ notes, state: "isDone" })}
+        total={notes.length}
+      />
       <NotesStatistics
         isDone={filterNotesLength({ notes, state: "isDone" })}
         inProgress={filterNotesLength({ notes, state: "inProgress" })}
