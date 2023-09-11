@@ -10,7 +10,7 @@ export function IconInProgress({
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={cn("w-6 h-6", className)}
+      className={cn("w-full h-full", className)}
       {...props}
     >
       <path
@@ -30,7 +30,7 @@ export function IconDone({ className, ...props }: React.ComponentProps<"svg">) {
       viewBox="0 0 24 24"
       strokeWidth="4"
       stroke="currentColor"
-      className={cn("w-6 h-6", className)}
+      className={cn("w-full h-full", className)}
       {...props}
     >
       <path
@@ -51,7 +51,7 @@ export function IconIsPending({
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={cn("w-6 h-6", className)}
+      className={cn("w-full h-full", className)}
       {...props}
     >
       <path
@@ -72,7 +72,7 @@ export function IconLoading({
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={cn("w-6 h-6", className)}
+      className={cn("w-full h-full", className)}
       {...props}
     >
       <path
@@ -93,7 +93,7 @@ export function IconRemove({
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={cn("w-6 h-6", className)}
+      className={cn("w-full h-full", className)}
       {...props}
     >
       <path

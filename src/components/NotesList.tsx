@@ -17,7 +17,7 @@ type NotesListProps = {
 
 export function NotesList({ notes, setNotes, className }: NotesListProps) {
   return (
-    <ul className={cn("flex flex-col gap-1", className)}>
+    <ul className={cn("flex flex-col gap-1 py-1", className)}>
       {notes.map((note, index) => {
         return (
           <li key={note.id}>
@@ -50,7 +50,7 @@ function NotesListItem({
       ? noteStates.isDone.colorClass
       : note.state === NoteStateValues.isPending
       ? noteStates.isPending.colorClass
-      : noteStates.inProgress.colorClass;
+      : `${noteStates.inProgress.colorClass} font-bold`;
 
   function handleChange({
     note,
@@ -87,17 +87,17 @@ function NotesListItem({
 
   return (
     <div className="flex items-center gap-1">
-      <p className={`font-semibold ${noteStateClass || ""}`}>{index + 1}</p>
+      <p className={noteStateClass}>{index + 1}</p>
       <Input
         type="text"
         value={note.description}
         onChange={(e) => handleChange({ note, description: e.target.value })}
-        className={`${noteStateClass}`}
+        className={noteStateClass}
       />
       {note.state !== NoteStateValues.inProgress && (
         <button
           type="button"
-          className={`w-6 h-6 ${noteStates.inProgress.colorClass || ""}`}
+          className={`w-4 h-4 ${noteStates.inProgress.colorClass || ""}`}
           onClick={() =>
             handleState({ note, notes, state: NoteStateValues.inProgress })
           }
@@ -109,7 +109,7 @@ function NotesListItem({
       {note.state !== NoteStateValues.isPending && (
         <button
           type="button"
-          className={`w-6 h-6 ${noteStates.isPending.colorClass || ""}`}
+          className={`w-4 h-4 ${noteStates.isPending.colorClass || ""}`}
           onClick={() =>
             handleState({ note, notes, state: NoteStateValues.isPending })
           }
@@ -121,7 +121,7 @@ function NotesListItem({
       {note.state !== NoteStateValues.isDone && (
         <button
           type="button"
-          className={`w-6 h-6 ${noteStates.isDone.colorClass || ""}`}
+          className={`w-4 h-4 ${noteStates.isDone.colorClass || ""}`}
           onClick={() =>
             handleState({ note, notes, state: NoteStateValues.isDone })
           }
@@ -132,7 +132,7 @@ function NotesListItem({
       )}
       <button
         type="button"
-        className="w-6 h-6 text-red-400"
+        className="w-4 h-4 text-red-400"
         onClick={() => handleRemove({ note, notes })}
         title="Remove note"
       >

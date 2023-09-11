@@ -103,7 +103,7 @@ export function Note() {
   }
 
   return (
-    <div className="text-slate-400 text-lg flex flex-col gap-2 h-full">
+    <div className="text-slate-400 text-base flex flex-col gap-2 h-full">
       <NotesTitle
         title={title}
         setTitle={updateTitle}
@@ -113,7 +113,7 @@ export function Note() {
       <Divider />
       {loading && (
         <div className="w-full flex flex-1 h-20 items-center justify-center">
-          <IconLoading className="animate-spin" />
+          <IconLoading className="animate-spin h-6 w-6" />
         </div>
       )}
       {!loading && (
@@ -121,7 +121,7 @@ export function Note() {
           <NotesList
             notes={notes}
             setNotes={updateNotes}
-            className="flex-1 overflow-y-auto px-4  "
+            className="flex-1 overflow-y-auto"
           />
           <NoteAdd notes={notes} setNotes={updateNotes} />
         </>

@@ -14,14 +14,14 @@ export function NotesStatistics({
   const donePercentage = (isDone / total) * 100 || 0;
 
   return (
-    <footer className="font-semibold text-sm flex flex-col gap-1">
+    <footer className="font-semibold text-lg flex flex-col gap-1">
       <div>
         <span className={`${donePercentage > 50 && "text-lime-400"}`}>
           {donePercentage.toFixed(0)}%
         </span>{" "}
-        of all tasks complete.
+        of all tasks complete
       </div>
-      <div className="flex gap-4 w-full items-center justify-between text-lg">
+      <div className="flex w-full items-center justify-between text-sm flex-wrap">
         <p>
           <span className="text-lime-400 pe-1">{isDone}</span>done
         </p>
