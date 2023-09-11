@@ -72,34 +72,35 @@ export function NewNote() {
   }
 
   return (
-    <div className="text-slate-400 text-lg flex flex-col gap-2">
-      <NotesTitle
-        done={filterNotesLength({ notes, state: "isDone" })}
-        total={notes.length}
-      />
+    <div className="text-slate-400 text-lg flex flex-col gap-2 h-full justify-between">
+      <div>
+        <NotesTitle
+          done={filterNotesLength({ notes, state: "isDone" })}
+          total={notes.length}
+        />
 
-      <Divider />
-
-      {loading && (
-        <div className="w-full flex h-20 items-center justify-center">
-          <IconLoading className="animate-spin" />
-        </div>
-      )}
-      {!loading && (
-        <>
-          <NotesList notes={notes} setNotes={updateNotes} />
-          <NoteAdd notes={notes} setNotes={updateNotes} />
-        </>
-      )}
-
-      <Divider />
-
-      <NotesStatistics
-        isDone={filterNotesLength({ notes, state: "isDone" })}
-        inProgress={filterNotesLength({ notes, state: "inProgress" })}
-        isPending={filterNotesLength({ notes, state: "isPending" })}
-        total={notes.length}
-      />
+        <Divider />
+        {loading && (
+          <div className="w-full flex h-20 items-center justify-center">
+            <IconLoading className="animate-spin" />
+          </div>
+        )}
+        {!loading && (
+          <>
+            <NotesList notes={notes} setNotes={updateNotes} />
+            <NoteAdd notes={notes} setNotes={updateNotes} />
+          </>
+        )}
+      </div>
+      <div>
+        <Divider />
+        <NotesStatistics
+          isDone={filterNotesLength({ notes, state: "isDone" })}
+          inProgress={filterNotesLength({ notes, state: "inProgress" })}
+          isPending={filterNotesLength({ notes, state: "isPending" })}
+          total={notes.length}
+        />
+      </div>
     </div>
   );
 }
