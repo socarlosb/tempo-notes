@@ -19,7 +19,11 @@ export function NotesTitle({ done = 0, total = 0 }: NotesTitleProps) {
         value={title}
         className="text-xl font-extrabold"
       />
-      <span className={`${total !== 0 && done === total ? noteStates.isDone.colorClass : ""}`}>
+      <span
+        className={`${
+          total !== 0 && done === total ? noteStates.isDone.colorClass : ""
+        }`}
+      >
         [{done}/{total}]
       </span>
     </header>
