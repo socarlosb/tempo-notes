@@ -47,7 +47,7 @@ export function ClearNotes({ setNotes, setGroupTitle }: ExportNotesProps) {
       <dialog
         open={isOpen}
         className={cn(
-          "p-4 z-20 absolute bg-slate-600 text-slate-200 top-1/2 rounded w-1/2",
+          "p-4 z-20 absolute bg-slate-600 text-slate-200 top-1/2 rounded",
           isOpen ? "block" : "hidden"
         )}
       >
